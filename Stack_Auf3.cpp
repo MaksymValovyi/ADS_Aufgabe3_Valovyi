@@ -7,11 +7,12 @@ template<class T> inline void Stack<T>::push(const T &value){
 }
 
 template<class T> void Stack<T>::pop(){
-    if(data.getSize() == 0){
+    if(data.getSize() < 0){
         cout << "Stack is empty" << endl;
     }else{
         data.removeLast();
         size--;
+        //getInfoPoppedData();
     }
     
 }

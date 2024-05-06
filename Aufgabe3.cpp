@@ -26,7 +26,14 @@ int main(int argc, char const *argv[])
 
     stack.pop();
     stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
 
+
+
+    cout << "After pop:" << endl;
     stack.getSize();
 
     stack.showStack();

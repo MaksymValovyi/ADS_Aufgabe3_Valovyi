@@ -9,7 +9,7 @@ template <typename T>
 class Stack
 {
 private:
-    int size;
+    int size = 0;
     Liste<T> data;
 public:
     Stack() : size(0), data(size) 

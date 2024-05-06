@@ -37,13 +37,18 @@ public:
         newNode->LinkNodes(head);
 
         size++;
+        cout << "Size NOW : " << size << endl;
     }
 
     void removeLast() {
-        if(!head) {
-            cout << "Liste ist leer." << endl;
+        if(size == 0) {
+            cout << "Liste ist leer. REMOVE" << endl;
             return;
-        } else {
+        } else if(size == 1) {
+            cout << "Liste hat nur ein Element." << endl;
+            //delete head;
+            head = nullptr;
+        }else{
             //---------------------
             Node<T>* current = head;
             Node<T>* previous = nullptr;
@@ -53,15 +58,16 @@ public:
             }
 
             previous->LinkNodes(head);
-            //delete current;
+            //delete current;   
             size--;
-            
         }
+        
+        cout << "Size NOW  removeLast: " << size << endl;
     }
     
     void print() {
-        if (!head) {
-            cout << "Liste ist leer." << endl;
+        if (size <= 0) {
+            cout << "Liste ist leer. PRINT" << endl;
             return;
         }
         Node<T>* current = this->head;

@@ -26,6 +26,8 @@ public:
     void isEmpty();
     void calculatePostfixFromData();
     void showStack();
+    void printTop();
+    T getOnIndex(int index);
 };
 
 

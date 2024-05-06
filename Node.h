@@ -9,7 +9,7 @@ template <typename T>
 class Node
 {
 private:
-    T value;
+    T value = 0;
     // Points to the next node. 
     Node* next;
 
@@ -20,7 +20,9 @@ public:
     };
 
     ~Node(){
-        delete next;
+        //delete next;
+        //delete this;
+        //delete next;
     };
 
     void LinkNodes(Node* linker) {
@@ -28,7 +30,7 @@ public:
     };
 
     void GetValue(){
-        cout << value << " ";
+        cout << value << " " ;
     };
 
     Node* NextInfo() const{
@@ -42,6 +44,10 @@ public:
     void ChangeNext(Node* dep){
         this->next = dep->NextInfo();
     };
+
+    T returnValue(){
+        return value;
+    }
 };
 
 #endif

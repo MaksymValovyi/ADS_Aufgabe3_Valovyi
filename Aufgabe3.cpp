@@ -6,37 +6,32 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    //FIX SIZE
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    Stack<char> stack;
-    //Stack<char> stack(size);
+
+    Stack<int> stack;
     stack.getSize();
 
-    stack.push('1');
-    stack.push('5');
-    stack.push('/');
-    stack.push('7');
-    stack.push('5');
-    stack.push('5');
-    stack.push('7');
-    stack.push('5');
-    stack.push('5');
 
-    stack.getSize();
-
-    stack.pop();
-    stack.pop();
-    stack.pop();
-    stack.pop();
-    stack.pop();
-    stack.pop();
-
-
-
-    cout << "After pop:" << endl;
-    stack.getSize();
+    
+    stack.push(1);
+    stack.push(5);
+    stack.push('+');
 
     stack.showStack();
+    cout << endl;
 
+    stack.push(3);
+    stack.push(7);
+    stack.push('+');
+    stack.showStack();
+    cout << endl;
+    stack.push('*');
+    stack.showStack();
+    cout << endl;
+    stack.push(5);
+    stack.push('/');
+    stack.showStack();
+    cout << endl;
+
+    
     return 0;
 }

@@ -27,6 +27,7 @@ public:
         if (!head) {
             head = newNode;
             head->LinkNodes(head);
+            size++;
             return;
         }
         Node<T>* current = head;
@@ -37,17 +38,18 @@ public:
         newNode->LinkNodes(head);
 
         size++;
-        cout << "Size NOW : " << size << endl;
+        //cout << "Size NOW : " << size << endl;
     }
 
     void removeLast() {
         if(size == 0) {
             cout << "Liste ist leer. REMOVE" << endl;
             return;
-        } else if(size == 1) {
-            cout << "Liste hat nur ein Element." << endl;
+        } else if(size == 1){  
+            //cout << "Liste hat nur ein Element." << endl;
             //delete head;
             head = nullptr;
+            size = 0;
         }else{
             //---------------------
             Node<T>* current = head;
@@ -64,6 +66,7 @@ public:
         
         cout << "Size NOW  removeLast: " << size << endl;
     }
+
     
     void print() {
         if (size <= 0) {
@@ -71,11 +74,10 @@ public:
             return;
         }
         Node<T>* current = this->head;
-        do {
+        do {  
             current->GetValue();
             current = current->NextInfo();
         } while (current != this->head);
-        cout << endl;
     }
 
     int getSize() {
@@ -92,4 +94,25 @@ public:
             current = nextNode;
         } while (current != head);
     }
+
+    void printTop(){
+        head->GetValue();
+    }
+
+    T getTop(){
+        return head->returnValue();
+    }
+
+    T getOnIndex(int index){
+        if(index > size){
+            cout << "Index out of bounds" << endl;
+            return 0;
+        }
+        Node<T>* current = head;
+        for(int i = 0; i < index; i++){
+            current = current->NextInfo();
+        }
+        return current->returnValue();
+    }
+
 };

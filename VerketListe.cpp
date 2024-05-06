@@ -16,11 +16,10 @@ public:
     }
 
     /**
-     * Inserts a new node with the given value into the circular linked list.
+     * Inserts a new node with the given value into the linked list.
      * If the list is empty, the new node becomes the head of the list.
      * Otherwise, the new node is inserted at the end of the list.
-     *
-     * @param value The value to be inserted into the list.
+     * @param value The value to be inserted.
      */
     void insert(T value) {
         Node<T>* newNode = new Node<T>(value);
@@ -38,20 +37,25 @@ public:
         newNode->LinkNodes(head);
 
         size++;
-        //cout << "Size NOW : " << size << endl;
+
     }
 
+    /**
+     * Removes the last element from the linked list.
+     * If the list is empty, it prints a message and returns.
+     * If the list has only one element, it sets the head to nullptr and updates the size to 0.
+     * For lists with more than one element, it iterates through the list to find the second-to-last element,
+     * updates the link of the previous element to the head, and decrements the size by 1.
+     */
     void removeLast() {
         if(size == 0) {
             cout << "Liste ist leer. REMOVE" << endl;
             return;
         } else if(size == 1){  
-            //cout << "Liste hat nur ein Element." << endl;
-            //delete head;
             head = nullptr;
             size = 0;
         }else{
-            //---------------------
+
             Node<T>* current = head;
             Node<T>* previous = nullptr;
             while (current->NextInfo() != head) {
@@ -59,15 +63,17 @@ public:
                 current = current->NextInfo();
             }
 
-            previous->LinkNodes(head);
-            //delete current;   
+            previous->LinkNodes(head); 
             size--;
         }
-        
-        cout << "Size NOW  removeLast: " << size << endl;
     }
-
-    
+    /**
+     * Prints the values of the linked list.    
+     * If the list is empty, it prints a message and returns.
+     * Otherwise, it iterates through the list and prints the value of each node.
+     * The iteration stops when the current node is equal to the head.
+     * 
+    */
     void print() {
         if (size <= 0) {
             cout << "Liste ist leer. PRINT" << endl;
@@ -102,6 +108,14 @@ public:
     T getTop(){
         return head->returnValue();
     }
+
+    /**
+     * Retrieves the value at the specified index in the linked list.
+     * 
+     * @param index The index of the element to retrieve.
+     * @return The value at the specified index.
+     * @throws std::out_of_range if the index is out of bounds.
+     */
 
     T getOnIndex(int index){
         if(index > size){

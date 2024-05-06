@@ -19,11 +19,7 @@ public:
         this->value = data;
     };
 
-    ~Node(){
-        //delete next;
-        //delete this;
-        //delete next;
-    };
+    ~Node(){};
 
     void LinkNodes(Node* linker) {
         this->next = linker;
